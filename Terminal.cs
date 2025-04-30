@@ -27,6 +27,7 @@ using System.Collections.Generic;
 using SerialPortTerminal.Properties;
 using System.Threading;
 using System.IO;
+using System.Text.RegularExpressions;
 #endregion
 
 namespace SerialPortTerminal
@@ -169,7 +170,31 @@ namespace SerialPortTerminal
         rtfTerminal.AppendText(msg);
         rtfTerminal.ScrollToCaret();
       }));
+
+      if (msgtype == LogMsgType.Incoming)
+      {
+        string presPattern = @"PRES:\s([\d.]+)\s*hPa";
+        string latPattern = @"LAT:\s([\d.-]+)";
+        string longPattern = @"LONG:\s([\d.,-]+)";
+
+        // Extract PRES
+        var presMatch = Regex.Match(msg, presPattern);
+        string pres = presMatch.Success ? presMatch.Groups[1].Value : "N/A";
+
+        // Extract LAT
+        var latMatch = Regex.Match(msg, latPattern);
+        string lat = latMatch.Success ? latMatch.Groups[1].Value : "N/A";
+
+        // Extract LONG
+        var longMatch = Regex.Match(msg, longPattern);
+        string longitude = longMatch.Success ? longMatch.Groups[1].Value : "N/A";
+
+        // Display the extracted values in a message box
+        LatValue.Text = lat;
+        LongValue.Text = longitude;
+        pressureValue.Text = pres;
     }
+}
 
     /// <summary> Convert a string of hex digits (ex: E4 CA B2) to a byte array. </summary>
     /// <param name="s"> The string containing the hex digits (with or without spaces). </param>
@@ -399,6 +424,31 @@ namespace SerialPortTerminal
         }
 
         private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LatValue_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LongValue_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pressureValue_Click(object sender, EventArgs e)
         {
 
         }

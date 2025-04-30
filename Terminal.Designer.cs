@@ -51,12 +51,12 @@ namespace SerialPortTerminal
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.chkDTR = new System.Windows.Forms.CheckBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
+            this.pressureValue = new System.Windows.Forms.Label();
+            this.LatValue = new System.Windows.Forms.Label();
+            this.LongValue = new System.Windows.Forms.Label();
             this.gbPortSettings.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -73,7 +73,7 @@ namespace SerialPortTerminal
             this.rtfTerminal.Location = new System.Drawing.Point(12, 12);
             this.rtfTerminal.MinimumSize = new System.Drawing.Size(434, 0);
             this.rtfTerminal.Name = "rtfTerminal";
-            this.rtfTerminal.Size = new System.Drawing.Size(434, 232);
+            this.rtfTerminal.Size = new System.Drawing.Size(576, 291);
             this.rtfTerminal.TabIndex = 0;
             this.rtfTerminal.Text = "";
             // 
@@ -85,10 +85,10 @@ namespace SerialPortTerminal
             this.txtSendData.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtSendData.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSendData.ForeColor = System.Drawing.Color.White;
-            this.txtSendData.Location = new System.Drawing.Point(76, 252);
-            this.txtSendData.MinimumSize = new System.Drawing.Size(370, 0);
+            this.txtSendData.Location = new System.Drawing.Point(76, 311);
+            this.txtSendData.MinimumSize = new System.Drawing.Size(370, 2);
             this.txtSendData.Name = "txtSendData";
-            this.txtSendData.Size = new System.Drawing.Size(370, 21);
+            this.txtSendData.Size = new System.Drawing.Size(512, 21);
             this.txtSendData.TabIndex = 2;
             this.txtSendData.TextChanged += new System.EventHandler(this.txtSendData_TextChanged);
             this.txtSendData.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSendData_KeyDown);
@@ -100,7 +100,7 @@ namespace SerialPortTerminal
             this.lblSend.AutoSize = true;
             this.lblSend.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSend.ForeColor = System.Drawing.Color.White;
-            this.lblSend.Location = new System.Drawing.Point(3, 255);
+            this.lblSend.Location = new System.Drawing.Point(3, 314);
             this.lblSend.Name = "lblSend";
             this.lblSend.Size = new System.Drawing.Size(68, 15);
             this.lblSend.TabIndex = 1;
@@ -115,7 +115,7 @@ namespace SerialPortTerminal
             this.btnSend.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSend.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSend.ForeColor = System.Drawing.Color.White;
-            this.btnSend.Location = new System.Drawing.Point(388, 279);
+            this.btnSend.Location = new System.Drawing.Point(388, 338);
             this.btnSend.Name = "btnSend";
             this.btnSend.Size = new System.Drawing.Size(58, 23);
             this.btnSend.TabIndex = 3;
@@ -274,7 +274,7 @@ namespace SerialPortTerminal
             this.btnOpenPort.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOpenPort.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOpenPort.ForeColor = System.Drawing.Color.White;
-            this.btnOpenPort.Location = new System.Drawing.Point(92, 348);
+            this.btnOpenPort.Location = new System.Drawing.Point(92, 407);
             this.btnOpenPort.Name = "btnOpenPort";
             this.btnOpenPort.Size = new System.Drawing.Size(354, 48);
             this.btnOpenPort.TabIndex = 6;
@@ -297,7 +297,7 @@ namespace SerialPortTerminal
             this.gbPortSettings.Controls.Add(this.label1);
             this.gbPortSettings.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbPortSettings.ForeColor = System.Drawing.Color.White;
-            this.gbPortSettings.Location = new System.Drawing.Point(12, 278);
+            this.gbPortSettings.Location = new System.Drawing.Point(12, 337);
             this.gbPortSettings.Name = "gbPortSettings";
             this.gbPortSettings.Size = new System.Drawing.Size(370, 64);
             this.gbPortSettings.TabIndex = 4;
@@ -313,7 +313,7 @@ namespace SerialPortTerminal
             this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClear.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClear.ForeColor = System.Drawing.Color.White;
-            this.btnClear.Location = new System.Drawing.Point(388, 313);
+            this.btnClear.Location = new System.Drawing.Point(388, 372);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(58, 23);
             this.btnClear.TabIndex = 9;
@@ -344,32 +344,18 @@ namespace SerialPortTerminal
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.groupBox1.Controls.Add(this.chkDTR);
-            this.groupBox1.Location = new System.Drawing.Point(12, 342);
+            this.groupBox1.Location = new System.Drawing.Point(12, 401);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(74, 54);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             // 
-            // label2
-            // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(473, 22);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(107, 17);
-            this.label2.TabIndex = 10;
-            this.label2.Text = "Thermo Temps";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
-            // 
             // label3
             // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(473, 227);
+            this.label3.Location = new System.Drawing.Point(594, 32);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(59, 17);
             this.label3.TabIndex = 11;
@@ -378,64 +364,76 @@ namespace SerialPortTerminal
             // 
             // label4
             // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(655, 227);
+            this.label4.Location = new System.Drawing.Point(705, 32);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(75, 17);
             this.label4.TabIndex = 12;
             this.label4.Text = "Longitude ";
-            // 
-            // label5
-            // 
-            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(655, 118);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(64, 17);
-            this.label5.TabIndex = 13;
-            this.label5.Text = "Humidity";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label6
             // 
-            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(473, 118);
+            this.label6.Location = new System.Drawing.Point(649, 102);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(68, 17);
             this.label6.TabIndex = 14;
             this.label6.Text = "Pressure";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
-            // label7
+            // pressureValue
             // 
-            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(655, 22);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(87, 17);
-            this.label7.TabIndex = 15;
-            this.label7.Text = "Baro Temps";
+            this.pressureValue.AutoSize = true;
+            this.pressureValue.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pressureValue.ForeColor = System.Drawing.Color.White;
+            this.pressureValue.Location = new System.Drawing.Point(649, 134);
+            this.pressureValue.Name = "pressureValue";
+            this.pressureValue.Size = new System.Drawing.Size(61, 17);
+            this.pressureValue.TabIndex = 17;
+            this.pressureValue.Text = "No Data";
+            this.pressureValue.Click += new System.EventHandler(this.pressureValue_Click);
+            // 
+            // LatValue
+            // 
+            this.LatValue.AutoSize = true;
+            this.LatValue.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LatValue.ForeColor = System.Drawing.Color.White;
+            this.LatValue.Location = new System.Drawing.Point(594, 70);
+            this.LatValue.Name = "LatValue";
+            this.LatValue.Size = new System.Drawing.Size(61, 17);
+            this.LatValue.TabIndex = 18;
+            this.LatValue.Text = "No Data";
+            this.LatValue.Click += new System.EventHandler(this.LatValue_Click);
+            // 
+            // LongValue
+            // 
+            this.LongValue.AutoSize = true;
+            this.LongValue.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LongValue.ForeColor = System.Drawing.Color.White;
+            this.LongValue.Location = new System.Drawing.Point(705, 70);
+            this.LongValue.Name = "LongValue";
+            this.LongValue.Size = new System.Drawing.Size(61, 17);
+            this.LongValue.TabIndex = 21;
+            this.LongValue.Text = "No Data";
+            this.LongValue.Click += new System.EventHandler(this.LongValue_Click);
             // 
             // frmTerminal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ClientSize = new System.Drawing.Size(773, 408);
-            this.Controls.Add(this.label7);
+            this.ClientSize = new System.Drawing.Size(847, 467);
+            this.Controls.Add(this.LongValue);
+            this.Controls.Add(this.LatValue);
+            this.Controls.Add(this.pressureValue);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.gbPortSettings);
@@ -482,12 +480,12 @@ namespace SerialPortTerminal
 		private System.Windows.Forms.ToolTip toolTip;
         private System.Windows.Forms.CheckBox chkDTR;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label pressureValue;
+        private System.Windows.Forms.Label LatValue;
+        private System.Windows.Forms.Label LongValue;
     }
 }
 
